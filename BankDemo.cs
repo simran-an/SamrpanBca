@@ -10,6 +10,12 @@ namespace SamrpanBca
     {
         static void Main(string[] args)
         {
+            //create object of persons class.
+            Persons persons = new Persons();
+            var personsData = persons.GetAllPersons();
+
+
+
             //Declaration of Varialable
             string AccountHolderName = "";
             int InitialBalance = 0;
