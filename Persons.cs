@@ -15,7 +15,7 @@ namespace SamrpanBca
         string address;
         string profession;
         bool isActive;
-        DateTime dOB;     //builtin data type to hold date and time attributes
+        DateTime dob;     //builtin data type to hold date and time attributes
 
         //creating constructor
         public Persons(int ID, string name, string address, string profession, bool IsActive, DateTime DOB)
@@ -25,12 +25,27 @@ namespace SamrpanBca
             this.address = address;
             this.profession = profession;
             this.isActive = IsActive;
-            this.dOB = DOB;
+            this.dob = DOB;
+        }
+        //default constructor
+        public Persons()
+        {
+
         }
 
         //c# Get and Set
         //setting attributes for class or class members
-        public string Pid { get; set; }
+        public int Pid
+        {
+            get
+            {
+                return id;
+            }
+            set
+            {
+                id = value;
+            }
+        }
         public string Pname
         {
             get
@@ -76,28 +91,51 @@ namespace SamrpanBca
         {
             get
             {
-                return dOB;
+                return dob;
             }
             set
             {
-                dOB = value;
+                dob = value;
             }
         }
-       
-            //List of Type Person: personList
-            List<Person> personList = new List<Person>();
-        public IList<Person> GetAllPersons()
-        {
-                 personList.Add(new Person(
-                "simran shrestha",
-                20,
-                "student",
-                "kathmandu",
-                new DateTime(2057-08- 06)
-                )
-                );
-            return personList;
 
+        //List of Type Person: personList
+        public IList<Persons> GetAllPersons()
+        {
+
+            List<Persons> personList = new List<Persons> {
+                new Persons
+                {
+
+                id=1,
+                name = "simran shrestha",
+                profession= "software engineer",
+                address = "kapan",
+                isActive =true,
+                dob = new DateTime(2057,08,06),
+                },
+                new Persons
+                {
+
+                id=1,
+                name = "sandesh thapa",
+                profession= "designer",
+                address = "mulpani",
+                isActive =true,
+                dob = new DateTime(2057,10,06),
+                },
+                new Persons
+                {
+
+                id=1,
+                name = "simran shrestha",
+                profession= "software engineer",
+                address = "kapan",
+                isActive =true,
+                dob = new DateTime(2057,08,06),
+                },
+                };
+            return personList.ToList();
 
 
         }
